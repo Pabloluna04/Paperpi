@@ -1,0 +1,187 @@
+/* Reset de estilos */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  header {
+    background-color: #212F3C;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+  }
+  
+  nav li {
+    display: inline;
+    margin-right: 20px;
+    color: #fff;
+  }
+  
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  section.banner {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  section.banner img {
+    max-width: 100%;
+  }
+  
+  section.promociones {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  section.promociones h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  div.promo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  div.promo img {
+    max-width: 100%;
+  }
+  
+  section.productos {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  section.productos h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  ul.product-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  li.product-item {
+    flex: 0 0 calc(33.333% - 20px);
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 40px;
+  }
+  
+  footer {
+    background-color: #212F3C;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+  }
+
+  /* Estilos adicionales para el carrusel */
+.carousel {
+    margin: 20px auto;
+    max-width: 800px; /* Ajusta el ancho del carrusel según tus necesidades */
+  }
+  
+  .carousel img {
+    width: 40%;
+    height: auto;
+  }
+  
+  .carousel h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-top: 20px;
+    color: #212F3C;
+  }
+  
+  .carousel-caption {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+  
+  /* Estilos para los controles del carrusel */
+  .carousel-control-prev, .carousel-control-next {
+    background-color: #212F3C;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    opacity: 0.7;
+  }
+  
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    color: #117A65;
+  }
+  
+  .carousel-control-prev-icon:hover, .carousel-control-next-icon:hover {
+    background-color: #212F3C;
+    color: #fff;
+  }
+  
+  /* Cambia el color de los enlaces de las redes sociales */
+  .social-icons a {
+    color: #fff; /* Puedes ajustar este color según tus preferencias */
+}
+
+/* Cambia el color de los enlaces al pasar el mouse por encima */
+.social-icons a:hover {
+    color: #fff; /* Puedes ajustar este color según tus preferencias */
+}
+
+ /* Cambia el color de los enlaces del menú principal y de las redes sociales */
+ .social-icons a,
+ nav ul li a {
+     color: #fff; /* Puedes ajustar este color según tus preferencias */
+ }
+
+ /* Cambia el color de los enlaces al pasar el mouse por encima */
+ .social-icons a:hover,
+ nav ul li a:hover {
+     color: #fff; /* Puedes ajustar este color según tus preferencias */
+ }
+
+ .social-icons {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: center; /* Centra horizontalmente los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+.social-icons li {
+    margin-right: 10px; /* Espacio entre los iconos de las redes sociales */
+}
+

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda en línea</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+        }
+
+        .product {
+            background-color: #fff;
+            border: 10px solid #212F3C;
+            border-radius: 5px;
+            width: calc(33.33% - 20px);
+            text-align: center;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+        }
+
+        .product h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .product p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        .product button {
+            background-color: #212F3C;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            transform: translateY(-10px);
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .product button:hover {
+            background-color: #212F3C;
+        }
+
+        
+
+        ul#cart-items {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul#cart-items li {
+            font-size: 1em;
+            color: #666;
+        }
+
+        p#cart-total {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        header {
+            background-color: #212F3C;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-icons li {
+            margin-right: 10px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        footer {
+            background-color: #212F3C;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        footer .empresa ul {
+            text-align: center;
+        }
+
+        footer .redes-sociales {
+            flex: 1;
+            text-align: center;
+        }
+
+        .social-icons a {
+            color: #fff;
+        }
+
+        .social-icons a:hover {
+            color: #fff;
+        }
+
+        /* Cambia el color de los enlaces de las redes sociales */
+        .social-icons a,
+        nav ul li a {
+            color: #fff;
+        }
+
+        /* Cambia el color de los enlaces al pasar el mouse por encima */
+        .social-icons a:hover,
+        nav ul li a:hover {
+            color: #e46810;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+            color: #fff;
+        }
+
+        p.paper-pulse {
+            text-align: center;
+            color: #6c757d;
+        }
+
+        .cart {
+            position: fixed;
+            top: 0;
+            right: -300px; /* Inicialmente fuera de la pantalla */
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+
+        #cart-toggle {
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #212F3C;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body >
+    <div class="container">
+        <header>
+            <h1>Tienda en línea</h1>
+            <nav>
+                <ul>
+                    <li><a href="../SistemaPaperpulse/InicioPaperPulse.html">Inicio</a></li>
+                    <li><a href="../Empresa/Quienes_Somos.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="product-container">
+            <div class="product" id="product1">
+                <h2>Producto 1</h2>
+                <img src="../Img/banner-7.png" alt="Producto 1" width="200">
+                <p>Descripción del Producto 1.</p>
+                <p>Precio: $10.00</p>
+                <button onclick="addToCart('product1', 'Producto 1', 10.00)">Agregar al Carrito</button>
+            </div>
+
+            <div class="product" id="product2">
+                <h2>Producto 2</h2>
+                <img src="../Img/banner-6.png" alt="Producto 2" width="200">
+                <p>Descripción del Producto 2.</p>
+                <p>Precio: $15.00</p>
+                <button onclick="addToCart('product2', 'Producto 2', 15.00)">Agregar al Carrito</button>
+            </div>
+
+            <div class="product" id="product3">
+                <h2>Producto 3</h2>
+                <img src="../Img/banner-7.png" alt="Producto 3" width="200">
+                <p>Descripción del Producto 3.</p>
+                <p>Precio: $10.00</p>
+                <button onclick="addToCart('product3', 'Producto 3', 10.00)">Agregar al Carrito</button>
+            </div>
+
+            <div class="product" id="product4">
+                <h2>Producto 4</h2>
+                <img src="../Img/banner-6.png" alt="Producto 4" width="200">
+                <p>Descripción del Producto 4.</p>
+                <p>Precio: $15.00</p>
+                <button onclick="addToCart('product4', 'Producto 4', 15.00)">Agregar al Carrito</button>
+            </div>
+
+            <div class="product" id="product5">
+                <h2>Producto 5</h2>
+                <img src="../Img/banner-7.png" alt="Producto 5" width="200">
+                <p>Descripción del Producto 5.</p>
+                <p>Precio: $10.00</p>
+                <button onclick="addToCart('product5', 'Producto 5', 10.00)">Agregar al Carrito</button>
+            </div>
+
+            <div class="product" id="product6">
+                <h2>Producto 6</h2>
+                <img src="../Img/banner-7.png" alt="Producto 6" width="200">
+                <p>Descripción del Producto 6.</p>
+                <p>Precio: $15.00</p>
+                <button onclick="addToCart('product6', 'Producto 6', 15.00)">Agregar al Carrito</button>
+            </div>
+
+            <div class="product" id="product7">
+                <h2>Producto 7</h2>
+                <img src="../Img/banner-6.png" alt="Producto 7" width="200">
+                <p>Descripción del Producto 7.</p>
+                <p>Precio: $15.00</p>
+                <button onclick="addToCart('product7', 'Producto 7', 15.00)">Agregar al Carrito</button>
+            </div>
+
+            <div class="product" id="product8">
+                <h2>Producto 8</h2>
+                <img src="../Img/banner-7.png" alt="Producto 8" width="200">
+                <p>Descripción del Producto 8.</p>
+                <p>Precio: $10.00</p>
+                <button onclick="addToCart('product8', 'Producto 8', 10.00)">Agregar al Carrito</button>
+            </div>
+
+            <div class="product" id="product9">
+                <h2>Producto 9</h2>
+                <img src="../Img/banner-7.png" alt="Producto 9" width="200">
+                <p>Descripción del Producto 9.</p>
+                <p>Precio: $15.00</p>
+                <button onclick="addToCart('product9', 'Producto 9', 15.00)">Agregar al Carrito</button>
+            </div>
+
+            <!-- Puedes agregar más productos siguiendo el mismo patrón -->
+        </div>
+
+        <button id="cart-toggle" onclick="toggleCart()">Ver Carrito</button>
+
+    <div class="cart" id="cart">
+        <h2>Carrito de Compras</h2>
+        <ul id="cart-items">
+        </ul>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button id="buy-button" onclick="buyCart()">Comprar</button>
+    </div>
+
+    <script>
+        // Función para agregar un producto al carrito
+        function addToCart(productId, productName, productPrice) {
+            var cartItems = document.getElementById('cart-items');
+            var cartTotal = document.getElementById('cart-total');
+            var cartItem = document.createElement('li');
+            cartItem.innerHTML = productName + ' - $' + productPrice;
+    
+            // Agregar un botón "Eliminar" para cada producto en el carrito
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Eliminar';
+            deleteButton.onclick = function() {
+                removeCartItem(cartItem, productPrice);
+            };
+    
+            cartItem.appendChild(deleteButton);
+            cartItems.appendChild(cartItem);
+    
+            // Actualizar el total
+            var currentTotal = parseFloat(cartTotal.innerText);
+            cartTotal.innerText = (currentTotal + productPrice).toFixed(2);
+        }
+    
+        // Función para eliminar un producto del carrito
+        function removeCartItem(cartItem, productPrice) {
+            var cartItems = document.getElementById('cart-items');
+            var cartTotal = document.getElementById('cart-total');
+            
+            // Restar el precio del producto eliminado al total
+            var currentTotal = parseFloat(cartTotal.innerText);
+            cartTotal.innerText = (currentTotal - productPrice).toFixed(2);
+    
+            // Eliminar el elemento del carrito
+            cartItems.removeChild(cartItem);
+        }
+    
+        // Función para comprar los productos y mostrar un recibo
+        function buyCart() {
+            var cartItems = document.getElementById('cart-items');
+            var cartTotal = document.getElementById('cart-total');
+    
+            // Crear un recibo con la lista de productos y el total
+            var receipt = 'Recibo de Compra:\n';
+            var items = cartItems.getElementsByTagName('li');
+            for (var i = 0; i < items.length; i++) {
+                receipt += items[i].textContent + '\n';
+            }
+            receipt += 'Total: $' + cartTotal.innerText;
+    
+            // Mostrar el recibo en una ventana emergente
+            alert(receipt);
+    
+            // Limpiar el carrito después de la compra
+            cartItems.innerHTML = '';
+            cartTotal.innerText = '0.00';
+        }
+
+        function toggleCart() {
+            var cart = document.getElementById('cart');
+            var cartToggle = document.getElementById('cart-toggle');
+            var isOpen = cart.style.right === '0px';
+
+            if (isOpen) {
+                cart.style.right = '-300px';
+            } else {
+                cart.style.right = '0';
+            }
+        }
+    </script>
+
+    <footer>
+        <div class="empresa">
+            <h3>Datos de la Empresa</h3>
+            <ul>
+                <li>Dirección: 123 Calle Ficticia, Ciudad Ficticia, País Ficticio</li>
+                <li>Correo: info@empresapapelera.com</li>
+                <li>Teléfono: +123 456 7890</li>
+            </ul>
+        </div>
+        <div class="redes-sociales">
+            <h3>Síguenos en nuestras redes sociales:</h3>
+            <ul class="social-icons">
+                <li><a href="https://www.facebook.com/empresapapelera" target="_blank"><img class="social-icon" src="../Img/Icon-facebook.png" alt="Facebook" width="40"></a></li>
+                <li><a href="https://www.instagram.com/empresapapelera" target="_blank"><img class="social-icon" src="../Img/Icon-Instagram.png" alt="Instagram" width="40"></a></li>
+                <li><a href="https://www.linkedin.com/company/empresapapelera" target="_blank"><img class="social-icon" src="../Img/Icon-LinkedIn.png" alt="LinkedIn" width="40"></a></li>
+                <li><a href="https://twitter.com/empresapapelera" target="_blank"><img class="social-icon" src="../Img/Twitter.png" alt="Twitter" width="40"></a></li>
+            </ul>
+        </div>
+    </footer>
+    <p class="paper-pulse">&copy; 2023 PaperPulse</p>
+</body>
+</html>
